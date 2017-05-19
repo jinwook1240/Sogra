@@ -13,27 +13,18 @@ public class Dir_act {
 	public boolean setDir(String dir){
 		File f = new File(dir+"\\.git\\sync.bat");
 		
-		List<String> cmd = new ArrayList<String>();
+		File dirlist = new File(System.getenv("APPDATA")+"\\GarakCloud");
+		if(!dirlist.exists()){
+			dirlist.mkdir();
+		}
 		
-		
-		File dirlist = new File("C:\\Program Files\\GarakCloud");
-		
-		dirlist = new File("C:\\Program Files\\GarakCloud\\dirlist");
-		dirlist = new File("C:\\Program Files\\GarakCloud\\dirlist");
-		dirlist = new File("C:\\Program Files\\GarakCloud\\dirlist");
+		dirlist = new File(System.getenv("APPDATA")+"\\GarakCloud\\dirlist");
 		dirlist.mkdir();
 		return true;
 	}
 	
 	public String getDir(){
 		return new String();
-	}/*
-	private String execute(List<String> l, String dir){
-		ProcessBuilder process = new ProcessBuilder(l);
-		process.directory(new File(dir));
-		process.start();
-		
-		
-		
-	}*/
+	}
+	
 }
